@@ -1,0 +1,10 @@
+{
+    "outputDirectory": "src/pages",
+    "routes": [
+      {
+        "src": "/.*",
+        "dest": "/index.html"
+      }
+    ]
+  }
+  

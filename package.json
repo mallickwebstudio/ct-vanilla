@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "build:css:prod": "npx tailwindcss -i ./src/css/global.css -o ./src/css/output.css --minify",
+    "build:css": "npx tailwindcss -i ./src/css/global.css -o ./src/css/output.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.15"
+  },
+  "dependencies": {
+    "embla-carousel": "^8.5.1"
+  }
+}

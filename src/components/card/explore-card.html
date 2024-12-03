@@ -1,0 +1,56 @@
+<div class="p-xs md:p-base flex items-center gap-sm bg-background rounded-md hover:shadow-md w-full overflow-hidden">
+    <div class="size-8 md:size-20 shrink-0">
+        <img class="size-full object-contain object-center" src="../../public/images/common/plane.svg"
+            alt="Plane Icon" />
+    </div>
+
+    <div class="flex flex-col">
+        <div class="hidden md:block flex-1"></div>
+        <a class="font-semibold text-lg leading-5 line-clamp-2" href="">
+            Beautician and Cosmetology
+        </a>
+
+        <div class="line-clamp-2 w-full overflow-hidden">
+            <a class="mt-sm hidden md:inline text-sm hover:underline text-nowrap" href="#">
+                Makeup
+            </a>,
+            <a class="mt-sm hidden md:inline text-sm hover:underline text-nowrap" href="#">
+                Hair Dressing
+            </a>
+        </div>
+
+        <span class="hidden md:block w-12 text-nowrap text-link hover:underline cursor-pointer"
+            data-modal-button="card-name">
+            View All
+        </span>
+
+        <div data-modal="card-name"> <!-- MODAL -->
+            <!-- Background overlay -->
+            <div data-modal-overlay></div>
+
+            <!-- Modal content -->
+            <div aria-labelledby="modal-title" role="dialog" aria-modal="true" data-modal-content>
+                <div data-modal-card>
+                    <!-- Close button -->
+                    <button class="absolute top-base right-base text-foreground/70 hover:text-foreground"
+                        aria-label="Close modal" data-modal-close>
+                        <img class="size-lg" src="../../public/images/icon/x.svg" alt="Close Button" />
+                    </button>
+
+                    <!-- Modal Header -->
+                    <div data-modal-head>
+                        <h2 class="mb-0 h4 text-center md:text-left">Beautician and
+                            Cosmetology</h2>
+                    </div>
+
+                    <!-- Modal Body -->
+                    <div class="flex gap-sm flex-wrap overflow-y-scroll" data-modal-body>
+                        <a class="button button-outline button-size-sm" href="#">Makeup</a>
+                        <a class="button button-outline button-size-sm" href="#">Hair
+                            Dressing</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

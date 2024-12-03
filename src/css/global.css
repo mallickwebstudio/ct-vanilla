@@ -1,0 +1,413 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 100;
+  src: url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff2") format("woff2"),
+    url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 200;
+  src: url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff2") format("woff2"),
+    url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 300;
+  src: url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff2") format("woff2"),
+    url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 400;
+  src: url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff2") format("woff2"),
+    url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 500;
+  src: url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff2") format("woff2"),
+    url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 600;
+  src: url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff2") format("woff2"),
+    url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 700;
+  src: url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff2") format("woff2"),
+    url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 800;
+  src: url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff2") format("woff2"),
+    url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 900;
+  src: url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff2") format("woff2"),
+    url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff") format("woff");
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 224 71.4% 4.1%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+
+    --primary: 215 100% 41%;
+    --primary-dark: 215 100% 35%;
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+
+    --dark: 210 4% 18%;
+    --dark-foreground: 0 0% 100%;
+    --dark-hover: 220, 10%, 23%;
+
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 207, 5%, 35%;
+
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
+
+    --active: 215 100% 41%;
+    --active-hover: 215 96% 35%;
+
+    --info: 200 100% 91%;
+
+    --bestseller: 113 38% 74%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 220 13% 70%;
+    --border-light: 207 14% 90%;
+    --border-dark: 224 71.4% 4.1%;
+
+    --input: 207 4% 43%;
+    --ring: 262.1 83.3% 57.8%;
+    --radius: 0.3rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+}
+
+@layer base {
+  *,
+  ::before,
+  ::after {
+    @apply border-border box-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-[Source_Sans_3];
+  }
+}
+
+
+@layer components {
+  /* h1,h2,h3,h4{
+    font-family: "Spectral", system-ui;
+  } */
+
+  h1,
+  .h1 {
+    @apply mb-4 text-3xl md:text-4xl lg:text-5xl lg:text-[3.2rem] font-semibold tracking-tight;
+  }
+
+  h2,
+  .h2 {
+    @apply mb-3 text-2xl md:text-3xl font-bold tracking-tight;
+  }
+
+  h3,
+  .h3 {
+    @apply mb-2 text-xl md:text-2xl font-semibold tracking-tight;
+  }
+
+  h4,
+  .h4 {
+    @apply text-xl font-semibold tracking-tight;
+  }
+
+  p,
+  .p {
+    @apply leading-6 text-lg text-foreground;
+  }
+
+  .sub-heading {
+    @apply text-foreground text-lg leading-[26px];
+  }
+
+  .text-link {
+    @apply text-active hover:text-active-hover;
+  }
+
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+}
+
+
+/* Buttons */
+@layer components {
+  .button {
+    @apply inline-flex items-center justify-center whitespace-nowrap rounded-md capitalize text-lg font-semibold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 select-none bg-primary text-primary-foreground hover:bg-primary-dark h-10 px-4 py-2;
+  }
+
+  /* Variants */
+  .button-default {
+    @apply bg-primary text-primary-foreground hover:bg-primary-dark;
+  }
+
+  .button-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
+  }
+
+  .button-tertiary {
+    @apply bg-dark text-dark-foreground hover:bg-dark-hover;
+  }
+
+  .button-outline {
+    @apply border border-dark-hover bg-background text-foreground hover:bg-dark-hover hover:text-background;
+  }
+
+  .button-ghost {
+    @apply bg-background text-foreground hover:bg-accent hover:text-accent-foreground;
+  }
+
+  .button-link {
+    @apply text-active hover:text-active-hover underline-offset-4 hover:underline;
+  }
+
+  .button-outline-secondary {
+    @apply border border-dark-hover bg-background text-foreground hover:bg-secondary;
+  }
+
+  .button-outline-secondary-light {
+    @apply border border-light bg-background hover:bg-secondary;
+  }
+
+  .button-outline-icon {
+    @apply border border-input aspect-square bg-background hover:bg-dark-hover hover:text-background;
+  }
+
+  .button-destructive {
+    @apply bg-destructive text-destructive-foreground hover:bg-destructive/90;
+  }
+
+  /* Sizes */
+  .button-size-default {
+    @apply h-10 px-4 py-2;
+  }
+
+  .button-size-cta {
+    @apply px-8 py-4 h-16 text-lg lg:text-xl;
+  }
+
+  .button-size-sm {
+    @apply h-9 px-3;
+  }
+
+  .button-size-lg {
+    @apply h-11 px-8;
+  }
+
+  .button-size-icon {
+    @apply h-10 w-10;
+  }
+}
+
+/* Inputs */
+@layer components {
+  .input {
+    @apply flex h-10 w-full font-normal rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .checkbox {
+    @apply size-base shrink-0 grow-0 rounded-sm border-2 border-dark ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 checked:bg-dark checked:text-primary-foreground;
+  }
+
+  .textarea {
+    @apply flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+}
+
+
+/* Components */
+@layer components {
+  /* Modal */
+  [data-modal] {
+    @apply relative inset-0 z-[99999] hidden;
+  }
+
+  [data-modal-overlay] {
+    @apply fixed inset-0 bg-black/50 transition-opacity;
+  }
+
+  [data-modal-content] {
+    @apply fixed inset-0 flex size-full justify-center md:p-4 overflow-y-scroll;
+  }
+
+  [data-modal-head] {
+    @apply p-4 border-b;
+  }
+
+  [data-modal-body] {
+    @apply p-base;
+  }
+
+  [data-modal-card] {
+    @apply relative inset-0 h-full md:h-fit w-full md:max-w-lg bg-background rounded-lg;
+  }
+
+
+
+
+  /* Carousel */
+  [data-carousel] {
+    @apply relative w-full;
+  }
+
+  [data-carousel-container] {
+    @apply relative overflow-hidden;
+  }
+
+  [data-carousel-content] {
+    @apply relative -ml-2 flex transition-transform duration-300 ease-in-out;
+  }
+
+  [data-carousel-item] {
+    @apply relative min-w-0 shrink-0 grow-0 pl-2 basis-4/5;
+  }
+
+  [data-carousel-prev-button] {
+    @apply button button-tertiary size-8 absolute top-1/2 -left-5 md:-left-9 transform -translate-y-1/2 rounded-full;
+  }
+
+  [data-carousel-next-button] {
+    @apply button button-tertiary size-8 absolute top-1/2 -right-5 md:-right-9 transform -translate-y-1/2 rounded-full;
+  }
+
+
+
+
+  /* Tab */
+  [data-tab] {
+    @apply relative;
+  }
+
+  [data-tab-panel] {
+    @apply p-1 w-fit bg-background flex gap-1 border rounded-md overflow-x-scroll;
+  }
+
+  [data-tab-key] {
+    @apply px-xs py-xs text-sm font-bold text-muted-foreground hover:text-foreground border-none rounded-md cursor-pointer;
+  }
+
+  [data-tab-content] {
+    @apply relative mt-xs p-base border rounded-md;
+  }
+
+
+
+
+  /* Popup */
+  [data-popup] {
+    @apply relative;
+  }
+
+  [data-popup-trigger] {
+    @apply relative;
+  }
+
+  [data-popup-trigger]:hover+[data-popup-content] {
+    @apply block;
+  }
+
+  [data-popup-content] {
+    @apply z-[9999] absolute hidden hover:block min-w-20 p-base border bg-background rounded-md shadow-md 
+    data-[popup-content=up]:bottom-full
+    data-[popup-content=up]:left-1/2 
+    data-[popup-content=up]:-translate-x-1/2 
+    data-[popup-content=down]:top-full
+    data-[popup-content=down]:left-1/2 
+    data-[popup-content=down]:-translate-x-1/2 
+    data-[popup-content=left]:right-full
+    data-[popup-content=left]:top-1/2 
+    data-[popup-content=left]:-translate-y-1/2 
+    data-[popup-content=right]:left-full
+    data-[popup-content=right]:top-1/2 
+    data-[popup-content=right]:-translate-y-1/2 
+    data-[popup-content=up]:before:bg-background 
+    data-[popup-content=up]:before:size-base 
+    data-[popup-content=up]:before:block 
+    data-[popup-content=up]:before:absolute 
+    data-[popup-content=up]:before:-bottom-2 
+    data-[popup-content=up]:before:left-1/2 
+    data-[popup-content=up]:before:-translate-x-1/2 
+    data-[popup-content=up]:before:border-b 
+    data-[popup-content=up]:before:border-r 
+    data-[popup-content=up]:before:rotate-45 
+    data-[popup-content=down]:before:bg-background 
+    data-[popup-content=down]:before:size-base 
+    data-[popup-content=down]:before:block 
+    data-[popup-content=down]:before:absolute 
+    data-[popup-content=down]:before:-top-2 
+    data-[popup-content=down]:before:left-1/2 
+    data-[popup-content=down]:before:-translate-x-1/2 
+    data-[popup-content=down]:before:border-t 
+    data-[popup-content=down]:before:border-l 
+    data-[popup-content=down]:before:rotate-45 
+    data-[popup-content=right]:before:bg-background 
+    data-[popup-content=right]:before:size-base 
+    data-[popup-content=right]:before:block 
+    data-[popup-content=right]:before:absolute 
+    data-[popup-content=right]:before:top-1/2 
+    data-[popup-content=right]:before:-left-2 
+    data-[popup-content=right]:before:-translate-y-1/2 
+    data-[popup-content=right]:before:border-b 
+    data-[popup-content=right]:before:border-l 
+    data-[popup-content=right]:before:rotate-45 
+    data-[popup-content=left]:before:bg-background 
+    data-[popup-content=left]:before:size-base 
+    data-[popup-content=left]:before:block 
+    data-[popup-content=left]:before:absolute 
+    data-[popup-content=left]:before:top-1/2 
+    data-[popup-content=left]:before:-right-2 
+    data-[popup-content=left]:before:-translate-y-1/2 
+    data-[popup-content=left]:before:border-t 
+    data-[popup-content=left]:before:border-r 
+    data-[popup-content=left]:before:rotate-45;
+  }
+}
