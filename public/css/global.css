@@ -342,6 +342,34 @@
 
 
 
+  /* Accordion */
+  [data-accordion] {
+    @apply relative;
+  }
+
+  [data-accordion-item] {
+    @apply border-b first:border-t;
+  }
+
+  [data-accordion-trigger] {
+    @apply py-base font-bold h3 mb-0 flex items-center justify-between gap-sm active;
+  }
+  
+  [data-accordion-trigger-icon] {
+    @apply size-base rotate-180 select-none transition-all;
+  }
+  
+  [data-accordion-trigger].active>[data-accordion-trigger-icon] {
+    @apply rotate-0;
+  }
+
+  [data-accordion-content] {
+    @apply relative h-0 pb-0 overflow-hidden px-lg transition-all;
+  }
+
+
+
+
   /* Popup */
   [data-popup] {
     @apply relative;

@@ -1,4 +1,5 @@
 import { breakpoints } from "./const.js";
+console.log("utils")
 
 export function formatNumber(number, locale) {
     return number.toLocaleString(locale || 'en-US');
@@ -240,25 +241,3 @@ function debounce(func, delay) {
 
 // Initialize on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', setupResponsiveCarousel);
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     const carouselContentElements = document.querySelectorAll('[data-carousel-content]');
-
-//     carouselContentElements.forEach((contentElement) => {
-//         const children = Array.from(contentElement.children);
-
-//         children.forEach((child) => {
-//             // Skip if already wrapped
-//             if (child.hasAttribute('data-carousel-item')) return;
-
-//             const wrapper = document.createElement('div');
-//             wrapper.setAttribute('data-carousel-item', '');
-
-//             // Move the child into the wrapper
-//             wrapper.appendChild(child);
-
-//             // Replace the child in the parent
-//             contentElement.appendChild(wrapper);
-//         });
-//     });
-// });

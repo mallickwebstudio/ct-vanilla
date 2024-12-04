@@ -1,3 +1,4 @@
+console.log("index")
 // Notification Functionality
 document.addEventListener("DOMContentLoaded", () => {
     // =========================================================
@@ -301,4 +302,74 @@ export class Tabs {
 // Initialize Tabs
 document.querySelectorAll('[data-tab]').forEach(tabElement => {
     new Tabs(tabElement);
+});
+
+// Accordion Component
+export class Accordion {
+    constructor(element) {
+        this.element = element;
+        this.items = Array.from(this.element.querySelectorAll('[data-accordion-item]'));
+        this.defaultItem = this.element.getAttribute('data-accordion-default-value');
+
+        this.init();
+    }
+
+    isItemOpen(item) {
+        const content = item.querySelector('[data-accordion-content]');
+        return content.style.height && content.style.height !== '0px';
+    }
+
+    openItem(item) {
+        const content = item.querySelector('[data-accordion-content]');
+
+        // Dynamically set height based on content's scrollHeight
+        content.style.height = `${content.scrollHeight}px`;
+
+        // Add padding to the parent accordion item
+        item.classList.add('pb-base');
+
+        // Remove any "collapsed" padding class
+        item.classList.remove('pb-0');
+    }
+
+    closeItem(item) {
+        const content = item.querySelector('[data-accordion-content]');
+
+        // Reset height to collapse
+        content.style.height = '0';
+
+        // Remove expanded padding and add collapsed padding
+        item.classList.add('pb-0');
+        item.classList.remove('pb-base');
+    }
+
+    init() {
+        this.items.forEach(item => {
+            const trigger = item.querySelector('[data-accordion-trigger]');
+            const content = item.querySelector('[data-accordion-content]');
+
+            // Set initial state based on data-accordion-default-value
+            const defaultValue = this.element.getAttribute('data-accordion-default-value');
+            if (item.getAttribute('data-accordion-item') === defaultValue) {
+                this.openItem(item);
+            }
+
+            // Add event listener to the trigger
+            trigger.addEventListener('click', () => {
+                const isActive = this.isItemOpen(item);
+
+                if (!isActive) {
+                    this.openItem(item);
+                } else {
+                    this.closeItem(item);
+                }
+            });
+        });
+    }
+
+}
+
+// Initialize Accordions
+document.querySelectorAll('[data-accordion]').forEach(accordionElement => {
+    new Accordion(accordionElement);
 });

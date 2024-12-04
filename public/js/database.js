@@ -1,3 +1,4 @@
+console.log("database")
 
 export const categoryDatas = [
     {

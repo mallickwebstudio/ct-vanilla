@@ -1,5 +1,5 @@
 {
-    "outputDirectory": "src/pages",
+    "outputDirectory": "public",
     "routes": [
       {
         "src": "/.*",

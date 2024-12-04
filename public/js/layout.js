@@ -1,5 +1,5 @@
 import { categoryDatas } from "./database.js";
-
+console.log("layout")
 // Function to render categories
 document.addEventListener("DOMContentLoaded", () => {
     // Function to render categories
