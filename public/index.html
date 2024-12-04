@@ -7,9 +7,7 @@
     <title>ct-vanilla</title>
     <link rel="stylesheet" href="./css/output.css">
     <script type="module" src="./js/index.js" defer></script>
-    <script type="module" src="./js/home.js" defer></script>
     <script type="module" src="./js/layout.js" defer></script>
-    <script type="module" src="./js/const.js" defer></script>
     <script type="module" src="./js/utils.js" defer></script>
     <script type="module" src="./js/components.js" defer></script>
 </head>
@@ -466,17 +464,15 @@
                             Go Back
                         </div>
                         <div class="p-sm space-y-2">
-                            <a class="block hover:underline" href="#" data-mobile-sidebar-nav-sub-category-close>
+                            <a class="block hover:underline" href="#" data-mobile-sidebar-nav-sub-category-close data-mobile-sidebar-nav-close>
                                 {item}
-                                <a>
-                                    <a class="block hover:underline" href="#"
-                                        data-mobile-sidebar-nav-sub-category-close>
-                                        {item}
-                                        <a>
-                                            <a class="block hover:underline" href="#"
-                                                data-mobile-sidebar-nav-sub-category-close>
-                                                {item}
-                                                <a>
+                            </a>
+                            <a class="block hover:underline" href="#" data-mobile-sidebar-nav-sub-category-close data-mobile-sidebar-nav-close>
+                                {item}
+                            </a>
+                            <a class="block hover:underline" href="#" data-mobile-sidebar-nav-sub-category-close data-mobile-sidebar-nav-close>
+                                {item}
+                            </a>
                         </div>
                     </div>
 

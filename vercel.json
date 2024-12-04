@@ -1,10 +1,23 @@
 {
-    "outputDirectory": "public",
-    "routes": [
-      {
-        "src": "/.*",
-        "dest": "/index.html"
-      }
-    ]
-  }
-  
+  "outputDirectory": "public",
+  "routes": [
+    {
+      "src": "/.*",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/js/(.*)",
+      "headers": {
+        "Content-Type": "application/javascript"
+      },
+      "dest": "/js/$1"
+    },
+    {
+      "src": "/css/(.*)",
+      "headers": {
+        "Content-Type": "text/css"
+      },
+      "dest": "/css/$1"
+    }
+  ]
+}

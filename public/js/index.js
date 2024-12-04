@@ -1,4 +1,5 @@
-console.log("index")
+// console.log("index")
+
 // Notification Functionality
 document.addEventListener("DOMContentLoaded", () => {
     // =========================================================
@@ -70,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// overscreenAskus
+// overscreenAskus Button Position
 document.addEventListener("DOMContentLoaded", () => {
     const overscreenAskus = document.querySelector("[data-overscreen-askus]");
 
@@ -91,50 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll", handleScroll);
 });
 
-// Modal Function
-document.addEventListener("DOMContentLoaded", () => {
-    // Open Modal Function
-    const openModal = (modalName) => {
-        const modal = document.querySelector(`[data-modal='${modalName}']`);
-        modal.classList.remove("hidden");
-        modal.classList.add("flex");
-        document.body.style.overflow = "hidden";
-    };
-
-    // Close Modal Function
-    const closeModal = (modal) => {
-        modal.classList.add("hidden");
-        modal.classList.remove("flex");
-        document.body.style.overflow = "";
-    };
-
-    // Handle Opening Modals
-    document.querySelectorAll("[data-modal-button]").forEach((button) => {
-        button.addEventListener("click", () => {
-            const modalId = button.getAttribute("data-modal-button");
-            openModal(modalId);
-        });
-    });
-
-    // Handle Closing Modals
-    document.querySelectorAll("[data-modal-close], [data-modal-cancel], [data-modal-overlay], [data-modal-wrapper]").forEach((element) => {
-        element.addEventListener("click", (event) => {
-            const modal = event.target.closest("[data-modal]");
-            closeModal(modal);
-        });
-    });
-
-    // Handle Escape Key
-    document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-            document.querySelectorAll("[data-modal]").forEach((modal) => {
-                closeModal(modal);
-            });
-        }
-    });
-});
-
-// Mobile Sidebar
+// Mobile Sidebar toggle
 document.addEventListener("DOMContentLoaded", () => {
     const fullscreenSearch = document.querySelector("[data-fullscreen-search]")
     const fullscreenSearchClose = document.querySelectorAll("[data-fullscreen-search-close]")
@@ -158,7 +116,6 @@ document.addEventListener("DOMContentLoaded", () => {
 // Search Suggestion
 document.addEventListener("DOMContentLoaded", () => {
     const inputs = document.querySelectorAll("[data-search]");
-    const suggestionsContainers = document.querySelectorAll("[data-search-suggestion]");
     const searchData = [
         { title: "JavaScript Basics", link: "/courses/js-basics" },
         { title: "Learn React", link: "/courses/react" },
@@ -248,128 +205,4 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = item.link;
         suggestionContainer.classList.add("hidden");
     }
-});
-
-// Tabs
-export class Tabs {
-    constructor(element) {
-        this.element = element;
-        this.tabPanel = this.element.querySelector('[data-tab-panel]');
-        this.buttons = Array.from(this.tabPanel.querySelectorAll('[data-tab-key]'));
-        this.contents = Array.from(this.element.querySelectorAll('[data-tab-content]'));
-
-        // Initialize the active tab
-        this.activeTabKey = this.buttons[0]?.getAttribute('data-tab-key') || null;
-
-        this.init();
-    }
-
-    init() {
-        // Set up event listeners for tab buttons
-        this.buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                this.setActiveTab(button.getAttribute('data-tab-key'));
-            });
-        });
-
-        // Set the initial state
-        this.setActiveTab(this.activeTabKey);
-    }
-
-    setActiveTab(tabKey) {
-        this.activeTabKey = tabKey;
-
-        // Update buttons
-        this.buttons.forEach(button => {
-            if (button.getAttribute('data-tab-key') === tabKey) {
-                button.classList.add(...['active', 'bg-secondary']); // Add active class
-            } else {
-                button.classList.remove(...['active', 'bg-secondary']); // Remove active class
-            }
-        });
-
-        // Update content
-        this.contents.forEach(content => {
-            if (content.getAttribute('data-tab-content') === tabKey) {
-                content.classList.remove('hidden'); // Show active content
-            } else {
-                content.classList.add('hidden'); // Hide inactive content
-            }
-        });
-    }
-}
-
-// Initialize Tabs
-document.querySelectorAll('[data-tab]').forEach(tabElement => {
-    new Tabs(tabElement);
-});
-
-// Accordion Component
-export class Accordion {
-    constructor(element) {
-        this.element = element;
-        this.items = Array.from(this.element.querySelectorAll('[data-accordion-item]'));
-        this.defaultItem = this.element.getAttribute('data-accordion-default-value');
-
-        this.init();
-    }
-
-    isItemOpen(item) {
-        const content = item.querySelector('[data-accordion-content]');
-        return content.style.height && content.style.height !== '0px';
-    }
-
-    openItem(item) {
-        const content = item.querySelector('[data-accordion-content]');
-
-        // Dynamically set height based on content's scrollHeight
-        content.style.height = `${content.scrollHeight}px`;
-
-        // Add padding to the parent accordion item
-        item.classList.add('pb-base');
-
-        // Remove any "collapsed" padding class
-        item.classList.remove('pb-0');
-    }
-
-    closeItem(item) {
-        const content = item.querySelector('[data-accordion-content]');
-
-        // Reset height to collapse
-        content.style.height = '0';
-
-        // Remove expanded padding and add collapsed padding
-        item.classList.add('pb-0');
-        item.classList.remove('pb-base');
-    }
-
-    init() {
-        this.items.forEach(item => {
-            const trigger = item.querySelector('[data-accordion-trigger]');
-            const content = item.querySelector('[data-accordion-content]');
-
-            // Set initial state based on data-accordion-default-value
-            const defaultValue = this.element.getAttribute('data-accordion-default-value');
-            if (item.getAttribute('data-accordion-item') === defaultValue) {
-                this.openItem(item);
-            }
-
-            // Add event listener to the trigger
-            trigger.addEventListener('click', () => {
-                const isActive = this.isItemOpen(item);
-
-                if (!isActive) {
-                    this.openItem(item);
-                } else {
-                    this.closeItem(item);
-                }
-            });
-        });
-    }
-
-}
-
-// Initialize Accordions
-document.querySelectorAll('[data-accordion]').forEach(accordionElement => {
-    new Accordion(accordionElement);
 });
