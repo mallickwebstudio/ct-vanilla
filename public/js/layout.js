@@ -112,7 +112,7 @@ const renderCategories = (container, categories) => {
 <a class="group-hover/category:text-active flex justify-between items-center gap-base" href="${category.href}">
     <span>${category.category_name}</span>
     ${category.subCategories.length > 0 ? `
-        <img class="shrink-0 size-4" src="../../public/images/icon/arrow-right.svg" alt="Right arrow icon" />
+        <img class="shrink-0 size-4" src="./images/icon/arrow-right.svg" alt="Right arrow icon" />
 
     ` : ''}
 </a>
@@ -124,7 +124,7 @@ ${category.subCategories.length > 0 ? `
                     <a class="group-hover/subcategory:text-active flex justify-between items-center gap-base" href="${subCategory.href}">
                         <span>${subCategory.category_name}</span>
                         ${subCategory.subSubCategories.length > 0 ? `
-                            <img class="shrink-0 size-4" src="../../public/images/icon/arrow-right.svg" alt="Right arrow icon" />
+                            <img class="shrink-0 size-4" src="./images/icon/arrow-right.svg" alt="Right arrow icon" />
                         ` : ''}
                     </a>
                     ${subCategory.subSubCategories.length > 0 ? `

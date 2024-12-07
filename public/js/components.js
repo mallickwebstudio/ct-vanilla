@@ -237,7 +237,6 @@ export class Carousel { // Carousel
 }
 
 
-
 export function setupResponsiveCarousel() { // Responsive Carousel
     const carousels = document.querySelectorAll('[data-carousel-content]');
 
@@ -367,6 +366,177 @@ export class Tabs { // Tabs
         });
     }
 }
+
+
+
+export class Select { // Select
+    constructor(element) {
+        this.element = element;
+        this.trigger = this.element.querySelector('[data-select-trigger]');
+        this.container = this.element.querySelector('[data-select-container]');
+        this.items = Array.from(this.element.querySelectorAll('[data-select-item]'));
+        this.textDisplay = this.trigger.querySelector('[data-select-text]');
+        this.init();
+    }
+
+    init() {
+        // Toggle the select container visibility on trigger click
+        this.trigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.toggleActive();
+        });
+
+        // Set up event listeners for each item
+        this.items.forEach((item) => {
+            item.addEventListener('click', () => {
+                this.selectItem(item);
+            });
+        });
+
+        // Close the dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!this.element.contains(e.target)) {
+                this.closeDropdown();
+            }
+        });
+
+        // Keyboard accessibility
+        this.trigger.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.toggleActive();
+            }
+        });
+
+        this.items.forEach((item) => {
+            item.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.selectItem(item);
+                }
+            });
+        });
+    }
+
+    toggleActive() {
+        this.trigger.classList.toggle('active');
+        if (this.trigger.classList.contains('active')) {
+            this.container.classList.add('block');
+            this.container.classList.remove('hidden');
+        } else {
+            this.closeDropdown();
+        }
+    }
+
+    closeDropdown() {
+        this.trigger.classList.remove('active');
+        this.container.classList.remove('block');
+        this.container.classList.add('hidden');
+    }
+
+    selectItem(item) {
+        const value = item.getAttribute('value');
+        const text = item.textContent.trim();
+
+        // Update the displayed text
+        this.textDisplay.textContent = text;
+
+        // Mark the selected item visually (optional)
+        this.items.forEach((item) => item.classList.remove('active'));
+        item.classList.add('active');
+
+        // Close the dropdown
+        this.closeDropdown();
+
+        // Dispatch a custom event with the selected value
+        this.element.dispatchEvent(new CustomEvent('select:change', {
+            detail: { value, text },
+            bubbles: true,
+        }));
+    }
+}
+
+
+
+export class Toast { // Toast
+    constructor(element) {
+        this.element = element;
+        this.container = this.element.querySelector('[data-toast-container]');
+        this.init();
+    }
+
+    init() {
+        // Ensure the toast container is hidden initially
+        this.element.classList.add('hidden');
+    }
+
+    showToast({ title, description }) {
+        // Ensure the toast element is visible
+        this.element.classList.remove('hidden');
+        this.element.classList.add('block');
+
+        // Create a new toast item
+        const toastItem = document.createElement('div');
+        toastItem.setAttribute('data-toast-item', '');
+
+        toastItem.innerHTML = `
+        <div data-toast-close>
+        <img src="./images/icon/x.svg" alt="Close Icon" />
+        </div>
+            ${title ? `<div class="font-bold">${title}</div>` : ''}
+            ${description ? `<p class="text-sm">${description}</p>` : ''}
+        `;
+
+        // Append the toast item to the container
+        this.container.appendChild(toastItem);
+
+        // Set up the close functionality
+        const closeButton = toastItem.querySelector('[data-toast-close]');
+        closeButton.addEventListener('click', () => {
+            this.dismissToast(toastItem);
+        });
+
+        // Automatically dismiss the toast after 7 seconds
+        setTimeout(() => {
+            this.dismissToast(toastItem);
+        }, 7000);
+    }
+
+    dismissToast(toastItem) {
+        if (toastItem) {
+            toastItem.classList.add('opacity-0'); // Add fade-out animation
+            setTimeout(() => {
+                toastItem.remove(); // Remove from DOM after fade-out
+                this.hideIfEmpty();
+            }, 300); // Adjust duration to match CSS transition
+        }
+    }
+
+    hideIfEmpty() {
+        if (!this.container.querySelector('[data-toast-item]')) {
+            this.element.classList.add('hidden'); // Hide the toast container if empty
+        }
+    }
+}
+
+
+
+
+// Initialize the toast component
+const toastElement = document.querySelector('[data-toast]');
+const toastInstance = new Toast(toastElement);
+
+// Global toast function
+export function toast({ title, description }) {
+    if (toastInstance) {
+        toastInstance.showToast({ title, description });
+    }
+}
+
+// Initialize all custom select components
+document.querySelectorAll('[data-select]').forEach((selectElement) => {
+    new Select(selectElement);
+});
 
 
 // INITILIZE COMPONENTS
