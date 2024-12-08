@@ -366,6 +366,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             cartCard.remove();
             updateCartUI();
+            toast({ description: "This course is removed from the cart" });
         });
     }
 

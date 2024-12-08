@@ -3,66 +3,12 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Source Sans 3", sans-serif;
-  font-weight: 100;
-  src: url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff2") format("woff2"),
-    url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Source Sans 3", sans-serif;
-  font-weight: 200;
-  src: url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff2") format("woff2"),
-    url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Source Sans 3", sans-serif;
-  font-weight: 300;
-  src: url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff2") format("woff2"),
-    url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Source Sans 3", sans-serif;
-  font-weight: 400;
-  src: url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff2") format("woff2"),
-    url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Source Sans 3", sans-serif;
-  font-weight: 500;
-  src: url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff2") format("woff2"),
-    url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Source Sans 3", sans-serif;
-  font-weight: 600;
-  src: url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff2") format("woff2"),
-    url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Source Sans 3", sans-serif;
-  font-weight: 700;
-  src: url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff2") format("woff2"),
-    url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Source Sans 3", sans-serif;
-  font-weight: 800;
-  src: url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff2") format("woff2"),
-    url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Source Sans 3", sans-serif;
-  font-weight: 900;
-  src: url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff2") format("woff2"),
-    url("../../public/fonts/sourcesans3-variablefont_wght-webfont.woff") format("woff");
+  font-family: "Source Sans 3";
+  src: url("../fonts/SourceSans3-Italic-VariableFont_wght.ttf") format("ttf"),
+       url("../fonts/SourceSans3-VariableFont_wght.ttf") format("ttf");
+  font-weight: 100 900; /* Supports all weights from 100 to 900 */
+  font-style: normal;
+  font-display: swap; /* Ensures text is displayed while the font is loading */
 }
 
 @layer base {
