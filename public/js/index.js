@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         autoSlideInterval = setInterval(() => {
             activeIndex = (activeIndex + 1) % notificationItems.length;
             updateActiveNotification(activeIndex);
-        }, 5000);
+        }, 7000);
     };
 
     const stopAutoSlide = () => {

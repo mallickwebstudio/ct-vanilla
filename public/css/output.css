@@ -2586,12 +2586,6 @@ p,
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
 
-.space-y-sm > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
-}
-
 .space-y-xs > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
@@ -3617,14 +3611,6 @@ p,
 
   .lg\:overflow-y-auto {
     overflow-y: auto;
-  }
-
-  .lg\:overscroll-auto {
-    overscroll-behavior: auto;
-  }
-
-  .lg\:overscroll-y-auto {
-    overscroll-behavior-y: auto;
   }
 
   .lg\:p-20 {
