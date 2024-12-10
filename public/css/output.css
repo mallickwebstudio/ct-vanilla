@@ -595,8 +595,10 @@ video {
 *,
   ::before,
   ::after {
+  margin: 0px;
   box-sizing: border-box;
   border-color: hsl(var(--border));
+  padding: 0px;
 }
 
 body {
@@ -618,10 +620,6 @@ body {
     max-width: 1400px;
   }
 }
-
-/* h1,h2,h3,h4{
-    font-family: "Spectral", system-ui;
-  } */
 
 h1,
   .h1 {
@@ -1336,6 +1334,8 @@ p,
 [data-carousel-container] {
   position: relative;
   overflow: hidden;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 
 [data-carousel-content] {
@@ -1353,7 +1353,7 @@ p,
   flex-shrink: 0;
   flex-grow: 0;
   flex-basis: 80%;
-  padding-left: 0.75rem;
+  padding-left: 0.5rem;
 }
 
 [data-carousel-prev-button] {
@@ -1627,6 +1627,8 @@ p,
 
 [data-popup-trigger] {
   position: relative;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
 }
 
 @media (min-width: 768px) {
@@ -1871,6 +1873,166 @@ p,
 [data-popup-content][data-popup-content="left"]::before {
   content: var(--tw-content);
   background-color: hsl(var(--background));
+}
+
+/* Course-card */
+
+[data-cc] {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: calc(var(--radius) - 2px);
+  border-width: 1px;
+  border-color: hsl(var(--border) / 0.5);
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+[data-cc-image-container] {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-top-left-radius: calc(var(--radius) - 2px);
+  border-top-right-radius: calc(var(--radius) - 2px);
+}
+
+[data-cc-thumbnail-image] {
+  aspect-ratio: 16 / 9;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+[data-cc-bestseller] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  border-radius: calc(var(--radius) - 2px);
+  background-color: hsl(var(--bestseller));
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+}
+
+[data-cc-thumbnail-overlay] {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: none;
+  --tw-translate-x: -50%;
+  --tw-translate-y: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  overflow: hidden;
+  border-radius: 9999px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
+  padding: 0.5rem;
+}
+
+[data-cc-content-container] {
+  position: relative;
+  border-bottom-left-radius: calc(var(--radius) - 2px);
+  border-bottom-right-radius: calc(var(--radius) - 2px);
+  border-top-width: 1px;
+  border-color: hsl(var(--border) / 0.5);
+  background-color: hsl(var(--background));
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+[data-cc-title] {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+}
+
+[data-cc-title]:hover {
+  cursor: pointer;
+}
+
+[data-cc-description] {
+  position: relative;
+  border-bottom-left-radius: calc(var(--radius) - 2px);
+  border-bottom-right-radius: calc(var(--radius) - 2px);
+  border-top-width: 1px;
+  border-color: hsl(var(--border) / 0.5);
+  background-color: hsl(var(--background));
+  padding: 0.75rem;
+}
+
+[data-cc-instructor-wrapper] {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+[data-cc-instructor-image] {
+  height: 1.25rem;
+  width: 1.25rem;
+  border-radius: 9999px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+[data-cc-instructor-name] {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: hsl(var(--muted-foreground));
+}
+
+[data-cc-rating-wrapper] {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+[data-cc-raters] {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+}
+
+[data-cc-star-container] {
+  display: flex;
+  width: 0.75rem;
+  height: 0.75rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+[data-cc-rating] {
+  display: block;
+  color: hsl(var(--muted-foreground));
 }
 
 .sr-only {
@@ -2946,6 +3108,10 @@ p,
   padding-right: 0.5rem;
 }
 
+.pt-0 {
+  padding-top: 0px;
+}
+
 .pt-base {
   padding-top: 1rem;
 }
@@ -3130,8 +3296,7 @@ p,
 @font-face {
   font-family: "Source Sans 3";
 
-  src: url("../fonts/SourceSans3-Italic-VariableFont_wght.ttf") format("ttf"),
-       url("../fonts/SourceSans3-VariableFont_wght.ttf") format("ttf");
+  src: url("../fonts/SourceSans3-VariableFont_wght.ttf") format("ttf");
 
   font-weight: 100 900;
 
@@ -3188,6 +3353,10 @@ p,
 
 .hover\:bg-secondary:hover {
   background-color: hsl(var(--secondary));
+}
+
+.hover\:bg-secondary\/70:hover {
+  background-color: hsl(var(--secondary) / 0.7);
 }
 
 .hover\:text-active:hover {
@@ -3331,10 +3500,6 @@ p,
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .sm\:justify-start {
-    justify-content: flex-start;
-  }
-
   .sm\:py-12 {
     padding-top: 3rem;
     padding-bottom: 3rem;
@@ -3383,10 +3548,6 @@ p,
     width: 50%;
   }
 
-  .md\:w-3\/5 {
-    width: 60%;
-  }
-
   .md\:w-80 {
     width: 20rem;
   }
@@ -3397,6 +3558,10 @@ p,
 
   .md\:w-\[43\%\] {
     width: 43%;
+  }
+
+  .md\:w-\[65\%\] {
+    width: 65%;
   }
 
   .md\:w-auto {
@@ -3422,6 +3587,10 @@ p,
 
   .md\:flex-row {
     flex-direction: row;
+  }
+
+  .md\:flex-nowrap {
+    flex-wrap: nowrap;
   }
 
   .md\:gap-40 {
@@ -3492,6 +3661,10 @@ p,
 
   .md\:hover\:block:hover {
     display: block;
+  }
+
+  .md\:hover\:bg-secondary:hover {
+    background-color: hsl(var(--secondary));
   }
 
   .peer:hover ~ .md\:peer-hover\:block {

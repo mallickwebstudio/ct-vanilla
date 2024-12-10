@@ -4,8 +4,7 @@
 
 @font-face {
   font-family: "Source Sans 3";
-  src: url("../fonts/SourceSans3-Italic-VariableFont_wght.ttf") format("ttf"),
-       url("../fonts/SourceSans3-VariableFont_wght.ttf") format("ttf");
+  src: url("../fonts/SourceSans3-VariableFont_wght.ttf") format("ttf");
   font-weight: 100 900; /* Supports all weights from 100 to 900 */
   font-style: normal;
   font-display: swap; /* Ensures text is displayed while the font is loading */
@@ -68,7 +67,7 @@
   *,
   ::before,
   ::after {
-    @apply border-border box-border;
+    @apply m-0 p-0 border-border box-border;
   }
 
   body {
@@ -78,10 +77,6 @@
 
 
 @layer components {
-  /* h1,h2,h3,h4{
-    font-family: "Spectral", system-ui;
-  } */
-
   h1,
   .h1 {
     @apply mb-4 text-3xl md:text-4xl lg:text-5xl lg:text-[3.2rem] font-semibold tracking-tight;
@@ -316,7 +311,7 @@
   }
 
   [data-carousel-container] {
-    @apply relative overflow-hidden;
+    @apply relative py-1 overflow-hidden;
   }
 
   [data-carousel-content] {
@@ -324,7 +319,7 @@
   }
 
   [data-carousel-item] {
-    @apply relative min-w-0 shrink-0 grow-0 pl-3 basis-4/5;
+    @apply relative min-w-0 shrink-0 grow-0 pl-2 basis-4/5;
   }
 
   [data-carousel-prev-button] {
@@ -392,7 +387,7 @@
   }
 
   [data-popup-trigger] {
-    @apply relative;
+    @apply relative px-1;
   }
 
   [data-popup-trigger]:hover+[data-popup-content] {
@@ -454,4 +449,69 @@
     data-[popup-content=left]:before:border-r 
     data-[popup-content=left]:before:rotate-45;
   }
+  
+
+
+
+  /* Course-card */
+  [data-cc] {
+    @apply relative block transition-all rounded-md overflow-hidden border border-border/50;
+  }
+
+  [data-cc-image-container] {
+    @apply relative aspect-video size-full overflow-hidden rounded-tl-md rounded-tr-md;
+  }
+
+  [data-cc-thumbnail-image] {
+    @apply object-cover aspect-video object-center w-full h-full transition-all;
+  }
+
+  [data-cc-bestseller] {
+    @apply absolute top-xs left-xs py-1 px-2 text-sm flex-center bg-bestseller font-semibold rounded-md;
+  }
+
+  [data-cc-thumbnail-overlay] {
+    @apply p-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  bg-black hidden rounded-full overflow-hidden;
+  }
+
+  [data-cc-content-container] {
+    @apply relative py-sm px-base bg-background rounded-bl-md rounded-br-md border-t border-border/50;
+  }
+
+  [data-cc-title] {
+    @apply text-lg font-semibold line-clamp-2 leading-5 hover:cursor-pointer;
+  }
+
+  [data-cc-description] {
+    @apply relative p-sm bg-background rounded-bl-md rounded-br-md border-t border-border/50;
+  }
+
+  [data-cc-instructor-wrapper] {
+    @apply my-2 flex gap-xs items-center;
+  }
+  
+  [data-cc-instructor-image] {
+    @apply rounded-full w-5 h-5 object-cover;
+  }
+  
+  [data-cc-instructor-name] {
+    @apply text-sm line-clamp-1 text-muted-foreground;
+  }
+  
+  [data-cc-rating-wrapper] {
+    @apply flex gap-1 items-center;
+  }
+  
+  [data-cc-raters] {
+    @apply font-bold text-lg;
+  }
+  
+  [data-cc-star-container] {
+    @apply flex items-center gap-1 size-sm w-fit;
+  }
+  
+  [data-cc-rating] {
+    @apply block text-muted-foreground;
+  }
+
 }
