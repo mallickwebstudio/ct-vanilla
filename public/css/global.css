@@ -5,9 +5,11 @@
 @font-face {
   font-family: "Source Sans 3";
   src: url("../fonts/SourceSans3-VariableFont_wght.ttf") format("ttf");
-  font-weight: 100 900; /* Supports all weights from 100 to 900 */
+  font-weight: 100 900;
+  /* Supports all weights from 100 to 900 */
   font-style: normal;
-  font-display: swap; /* Ensures text is displayed while the font is loading */
+  font-display: swap;
+  /* Ensures text is displayed while the font is loading */
 }
 
 @layer base {
@@ -64,6 +66,7 @@
 }
 
 @layer base {
+
   *,
   ::before,
   ::after {
@@ -77,6 +80,7 @@
 
 
 @layer components {
+
   h1,
   .h1 {
     @apply mb-4 text-3xl md:text-4xl lg:text-5xl lg:text-[3.2rem] font-semibold tracking-tight;
@@ -209,15 +213,15 @@
   [data-select] {
     @apply relative w-fit;
   }
-  
+
   [data-select-trigger] {
     @apply flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 cursor-pointer disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1;
   }
-  
+
   [data-select-container] {
     @apply absolute hidden bg-background p-1 rounded-md border shadow-md mt-2;
   }
-  
+
   [data-select-trigger].active+[data-select-container] {
     @apply block;
   }
@@ -232,23 +236,24 @@
   [data-toast] {
     @apply fixed right-0 bottom-0 hidden w-full bg-red-400 z-50;
   }
-  
+
   [data-toast-container] {
     @apply p-base absolute right-0 bottom-0 flex flex-col gap-xs;
   }
-  
+
   [data-toast-item] {
     @apply relative p-base bg-background rounded-md border shadow-md min-w-80 max-w-md;
   }
-  
+
   [data-toast-close] {
     @apply absolute top-sm right-sm cursor-pointer size-base md:size-lg;
-  } 
+  }
 }
 
 
 /* Components */
 @layer components {
+
   /* Notification */
   [data-notification] {
     @apply relative bg-info w-full overflow-hidden;
@@ -365,11 +370,11 @@
   [data-accordion-trigger] {
     @apply py-base font-bold h3 mb-0 flex items-center justify-between gap-sm active cursor-pointer;
   }
-  
+
   [data-accordion-trigger-icon] {
     @apply size-base rotate-180 select-none transition-all;
   }
-  
+
   [data-accordion-trigger].active>[data-accordion-trigger-icon] {
     @apply rotate-0;
   }
@@ -395,61 +400,9 @@
   }
 
   [data-popup-content] {
-    @apply z-[9999] absolute hidden hover:block min-w-20 p-base border bg-background rounded-md shadow-md 
-    data-[popup-content=up]:bottom-full
-    data-[popup-content=up]:left-1/2 
-    data-[popup-content=up]:-translate-x-1/2 
-    data-[popup-content=down]:top-full
-    data-[popup-content=down]:left-1/2 
-    data-[popup-content=down]:-translate-x-1/2 
-    data-[popup-content=left]:right-[calc(100%_-_8px)]
-    data-[popup-content=left]:top-1/2 
-    data-[popup-content=left]:-translate-y-1/2 
-    data-[popup-content=right]:left-full
-    data-[popup-content=right]:top-1/2 
-    data-[popup-content=right]:-translate-y-1/2 
-    data-[popup-content=up]:before:bg-background 
-    data-[popup-content=up]:before:size-base 
-    data-[popup-content=up]:before:block 
-    data-[popup-content=up]:before:absolute 
-    data-[popup-content=up]:before:-bottom-2 
-    data-[popup-content=up]:before:left-1/2 
-    data-[popup-content=up]:before:-translate-x-1/2 
-    data-[popup-content=up]:before:border-b 
-    data-[popup-content=up]:before:border-r 
-    data-[popup-content=up]:before:rotate-45 
-    data-[popup-content=down]:before:bg-background 
-    data-[popup-content=down]:before:size-base 
-    data-[popup-content=down]:before:block 
-    data-[popup-content=down]:before:absolute 
-    data-[popup-content=down]:before:-top-2 
-    data-[popup-content=down]:before:left-1/2 
-    data-[popup-content=down]:before:-translate-x-1/2 
-    data-[popup-content=down]:before:border-t 
-    data-[popup-content=down]:before:border-l 
-    data-[popup-content=down]:before:rotate-45 
-    data-[popup-content=right]:before:bg-background 
-    data-[popup-content=right]:before:size-base 
-    data-[popup-content=right]:before:block 
-    data-[popup-content=right]:before:absolute 
-    data-[popup-content=right]:before:top-1/2 
-    data-[popup-content=right]:before:-left-2 
-    data-[popup-content=right]:before:-translate-y-1/2 
-    data-[popup-content=right]:before:border-b 
-    data-[popup-content=right]:before:border-l 
-    data-[popup-content=right]:before:rotate-45 
-    data-[popup-content=left]:before:bg-background 
-    data-[popup-content=left]:before:size-base 
-    data-[popup-content=left]:before:block 
-    data-[popup-content=left]:before:absolute 
-    data-[popup-content=left]:before:top-1/2 
-    data-[popup-content=left]:before:-right-2 
-    data-[popup-content=left]:before:-translate-y-1/2 
-    data-[popup-content=left]:before:border-t 
-    data-[popup-content=left]:before:border-r 
-    data-[popup-content=left]:before:rotate-45;
+    @apply z-[9999] absolute hidden hover:block min-w-20 p-base border bg-background rounded-md shadow-md data-[popup-content=up]:bottom-full data-[popup-content=up]:left-1/2 data-[popup-content=up]:-translate-x-1/2 data-[popup-content=down]:top-full data-[popup-content=down]:left-1/2 data-[popup-content=down]:-translate-x-1/2 data-[popup-content=left]:right-[calc(100%_-_8px)] data-[popup-content=left]:top-1/2 data-[popup-content=left]:-translate-y-1/2 data-[popup-content=right]:left-full data-[popup-content=right]:top-1/2 data-[popup-content=right]:-translate-y-1/2 data-[popup-content=up]:before:bg-background data-[popup-content=up]:before:size-base data-[popup-content=up]:before:block data-[popup-content=up]:before:absolute data-[popup-content=up]:before:-bottom-2 data-[popup-content=up]:before:left-1/2 data-[popup-content=up]:before:-translate-x-1/2 data-[popup-content=up]:before:border-b data-[popup-content=up]:before:border-r data-[popup-content=up]:before:rotate-45 data-[popup-content=down]:before:bg-background data-[popup-content=down]:before:size-base data-[popup-content=down]:before:block data-[popup-content=down]:before:absolute data-[popup-content=down]:before:-top-2 data-[popup-content=down]:before:left-1/2 data-[popup-content=down]:before:-translate-x-1/2 data-[popup-content=down]:before:border-t data-[popup-content=down]:before:border-l data-[popup-content=down]:before:rotate-45 data-[popup-content=right]:before:bg-background data-[popup-content=right]:before:size-base data-[popup-content=right]:before:block data-[popup-content=right]:before:absolute data-[popup-content=right]:before:top-1/2 data-[popup-content=right]:before:-left-2 data-[popup-content=right]:before:-translate-y-1/2 data-[popup-content=right]:before:border-b data-[popup-content=right]:before:border-l data-[popup-content=right]:before:rotate-45 data-[popup-content=left]:before:bg-background data-[popup-content=left]:before:size-base data-[popup-content=left]:before:block data-[popup-content=left]:before:absolute data-[popup-content=left]:before:top-1/2 data-[popup-content=left]:before:-right-2 data-[popup-content=left]:before:-translate-y-1/2 data-[popup-content=left]:before:border-t data-[popup-content=left]:before:border-r data-[popup-content=left]:before:rotate-45;
   }
-  
+
 
 
 
@@ -471,7 +424,7 @@
   }
 
   [data-cc-thumbnail-overlay] {
-    @apply p-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  bg-black hidden rounded-full overflow-hidden;
+    @apply p-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black hidden rounded-full overflow-hidden;
   }
 
   [data-cc-content-container] {
@@ -489,29 +442,52 @@
   [data-cc-instructor-wrapper] {
     @apply my-2 flex gap-xs items-center;
   }
-  
+
   [data-cc-instructor-image] {
     @apply rounded-full w-5 h-5 object-cover;
   }
-  
+
   [data-cc-instructor-name] {
     @apply text-sm line-clamp-1 text-muted-foreground;
   }
-  
+
   [data-cc-rating-wrapper] {
     @apply flex gap-1 items-center;
   }
-  
+
   [data-cc-raters] {
     @apply font-bold text-lg;
   }
-  
+
   [data-cc-star-container] {
     @apply flex items-center gap-1 size-sm w-fit;
   }
-  
+
   [data-cc-rating] {
     @apply block text-muted-foreground;
   }
 
+
+
+
+  /* Browse Table */
+  [data-browse-table] {
+    @apply w-full;
+  }
+
+  [data-browse-table] tbody {
+    @apply divide-y;
+  }
+
+  [data-browse-table] tr {
+    @apply hover:bg-secondary/70 border-b;
+  }
+
+  [data-browse-table] th {
+    @apply font-semibold text-muted-foreground whitespace-nowrap;
+  }
+
+  [data-browse-table] th,[data-browse-table] td {
+    @apply p-xs whitespace-nowrap;
+  }
 }
