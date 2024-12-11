@@ -201,23 +201,29 @@ export class Carousel { // Carousel
             const slideWidth = this.container.offsetWidth / this.slidesToShow;
             this.content.style.transform = `translateX(calc(-${this.currentIndex * (100 / this.slidesToShow)}% + ${(deltaX / slideWidth) * (100 / this.slidesToShow)}%))`;
         };
-
         const onDragEnd = () => {
-            if (!isDragging) return;
-            isDragging = false;
-
-            const slideWidth = this.container.offsetWidth / this.slidesToShow;
-            const slidesMoved = Math.round(deltaX / slideWidth);
-
-            this.content.style.transition = ''; // Re-enable transition for snapping
-            if (slidesMoved > 0) {
-                this.currentIndex = Math.max(this.currentIndex - slidesMoved, 0);
-            } else if (slidesMoved < 0) {
-                this.currentIndex = Math.min(this.currentIndex - slidesMoved, this.items.length - this.slidesToShow);
+            if (!isDragging) return; // Ensure the drag has started
+            isDragging = false; // Reset dragging state
+        
+            const slideWidth = this.container.offsetWidth / this.slidesToShow; // Width of one slide
+            const threshold = slideWidth * 0.25; // 25% of the slide width
+        
+            if (Math.abs(deltaX) > threshold) {
+                if (deltaX > 0) {
+                    // Dragged to the right (move to the previous slide)
+                    this.currentIndex = Math.max(this.currentIndex - 1, 0);
+                } else {
+                    // Dragged to the left (move to the next slide)
+                    this.currentIndex = Math.min(this.currentIndex + 1, this.items.length - this.slidesToShow);
+                }
             }
-
-            this.updateCarousel();
+        
+            // Reset the transform to snap to the appropriate slide
+            this.content.style.transition = ''; // Re-enable transition for snapping
+            this.updateCarousel(); // Update carousel to reflect the new slide position
+            deltaX = 0; // Reset deltaX for future drags
         };
+        
 
         this.container.addEventListener('mousedown', onDragStart);
         this.container.addEventListener('mousemove', onDragMove);

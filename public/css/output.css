@@ -2835,6 +2835,10 @@ p,
   border-radius: 0.75rem;
 }
 
+.rounded-none {
+  border-radius: 0px;
+}
+
 .rounded-bl-md {
   border-bottom-left-radius: calc(var(--radius) - 2px);
 }
@@ -2883,10 +2887,6 @@ p,
   border-top-width: 1px;
 }
 
-.border-t-0 {
-  border-top-width: 0px;
-}
-
 .border-none {
   border-style: none;
 }
@@ -2906,6 +2906,10 @@ p,
 
 .border-foreground\/30 {
   border-color: hsl(var(--foreground) / 0.3);
+}
+
+.border-dark {
+  border-color: hsl(var(--dark));
 }
 
 .bg-background {
