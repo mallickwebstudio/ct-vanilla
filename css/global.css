@@ -408,11 +408,11 @@
 
   /* Course-card */
   [data-cc] {
-    @apply relative block transition-all rounded-md overflow-hidden border border-border/50;
+    @apply relative block transition-all rounded-md overflow-hidden border border-border/50 select-none;
   }
 
   [data-cc-image-container] {
-    @apply relative aspect-video size-full overflow-hidden rounded-tl-md rounded-tr-md;
+    @apply relative aspect-video size-full overflow-hidden rounded-tl-md rounded-tr-md select-none;
   }
 
   [data-cc-thumbnail-image] {
@@ -428,7 +428,7 @@
   }
 
   [data-cc-content-container] {
-    @apply relative py-sm px-base bg-background rounded-bl-md rounded-br-md border-t border-border/50;
+    @apply relative py-sm px-base bg-background rounded-bl-md rounded-br-md border-t border-border/50  select-none;
   }
 
   [data-cc-title] {

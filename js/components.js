@@ -1,8 +1,6 @@
 import { parseResponsiveValues, debounce } from "./utils.js";
 import { breakpoints } from "./utils.js";
 
-
-
 export class Accordion { // Accordion Component
     constructor(element) {
         this.element = element;
@@ -206,7 +204,7 @@ export class Carousel { // Carousel
             isDragging = false; // Reset dragging state
         
             const slideWidth = this.container.offsetWidth / this.slidesToShow; // Width of one slide
-            const threshold = slideWidth * 0.25; // 25% of the slide width
+            const threshold = slideWidth * 0.10; // 25% of the slide width
         
             if (Math.abs(deltaX) > threshold) {
                 if (deltaX > 0) {
