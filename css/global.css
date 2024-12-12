@@ -316,7 +316,7 @@
   }
 
   [data-carousel-container] {
-    @apply relative py-1 overflow-hidden;
+    @apply relative py-1 overflow-hidden touch-pan-y;
   }
 
   [data-carousel-content] {

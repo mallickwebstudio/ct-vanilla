@@ -1333,6 +1333,8 @@ p,
 
 [data-carousel-container] {
   position: relative;
+  --tw-pan-y: pan-y;
+  touch-action: var(--tw-pan-x) var(--tw-pan-y) var(--tw-pinch-zoom);
   overflow: hidden;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;

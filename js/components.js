@@ -185,6 +185,7 @@ export class Carousel { // Carousel
         // Drag functionality (as previously updated)
         let startX = 0, deltaX = 0, isDragging = false;
 
+
         const onDragStart = (e) => {
             isDragging = true;
             startX = e.type === 'mousedown' ? e.clientX : e.touches[0].clientX;
@@ -193,19 +194,27 @@ export class Carousel { // Carousel
 
         const onDragMove = (e) => {
             if (!isDragging) return;
+
             const currentX = e.type === 'mousemove' ? e.clientX : e.touches[0].clientX;
             deltaX = currentX - startX;
 
             const slideWidth = this.container.offsetWidth / this.slidesToShow;
+
+            // Prevent vertical scrolling
+            if (e.type === 'touchmove') {
+                e.preventDefault(); // Stop the default scrolling behavior
+            }
+
             this.content.style.transform = `translateX(calc(-${this.currentIndex * (100 / this.slidesToShow)}% + ${(deltaX / slideWidth) * (100 / this.slidesToShow)}%))`;
         };
+
         const onDragEnd = () => {
             if (!isDragging) return; // Ensure the drag has started
             isDragging = false; // Reset dragging state
-        
+
             const slideWidth = this.container.offsetWidth / this.slidesToShow; // Width of one slide
             const threshold = slideWidth * 0.10; // 25% of the slide width
-        
+
             if (Math.abs(deltaX) > threshold) {
                 if (deltaX > 0) {
                     // Dragged to the right (move to the previous slide)
@@ -215,13 +224,13 @@ export class Carousel { // Carousel
                     this.currentIndex = Math.min(this.currentIndex + 1, this.items.length - this.slidesToShow);
                 }
             }
-        
+
             // Reset the transform to snap to the appropriate slide
             this.content.style.transition = ''; // Re-enable transition for snapping
             this.updateCarousel(); // Update carousel to reflect the new slide position
             deltaX = 0; // Reset deltaX for future drags
         };
-        
+
 
         this.container.addEventListener('mousedown', onDragStart);
         this.container.addEventListener('mousemove', onDragMove);
@@ -229,7 +238,7 @@ export class Carousel { // Carousel
         this.container.addEventListener('mouseleave', onDragEnd);
 
         this.container.addEventListener('touchstart', onDragStart);
-        this.container.addEventListener('touchmove', onDragMove);
+        this.container.addEventListener('touchmove', onDragMove); // Updated to include preventDefault
         this.container.addEventListener('touchend', onDragEnd);
 
         // Window resize to update carousel dynamically
